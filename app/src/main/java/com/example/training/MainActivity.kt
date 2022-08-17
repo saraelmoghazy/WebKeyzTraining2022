@@ -7,13 +7,17 @@ import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.training.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-
+    lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+
+        // use view binding in activity
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
 //        val spinner1: Spinner = findViewById(R.id.spinner1)
 //
@@ -43,10 +47,10 @@ class MainActivity : AppCompatActivity() {
             )
         )
 
-        val employeeAdapter = EmployeeAdapter(this, emp)
-        findViewById<RecyclerView>(R.id.rvEmployee).layoutManager = LinearLayoutManager(this)
-
-        findViewById<RecyclerView>(R.id.rvEmployee).adapter = employeeAdapter
+        //recylcerview
+//        val employeeAdapter = EmployeeAdapter(this, emp)
+//        binding.rvEmployee.layoutManager = LinearLayoutManager(this)
+//        binding.rvEmployee.adapter = employeeAdapter
 
     }
 }
