@@ -5,6 +5,7 @@ import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
@@ -43,8 +44,9 @@ class MainActivity : AppCompatActivity() {
         )
 
         val employeeAdapter = EmployeeAdapter(this, emp)
+        findViewById<RecyclerView>(R.id.rvEmployee).layoutManager = LinearLayoutManager(this)
 
-        findViewById<ListView>(R.id.rvEmployee).adapter = employeeAdapter
+        findViewById<RecyclerView>(R.id.rvEmployee).adapter = employeeAdapter
 
     }
 }
