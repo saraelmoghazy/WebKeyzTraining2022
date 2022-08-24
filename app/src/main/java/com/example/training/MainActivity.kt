@@ -1,6 +1,7 @@
 package com.example.training
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.Spinner
@@ -8,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.training.databinding.ActivityMainBinding
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
@@ -52,5 +55,12 @@ class MainActivity : AppCompatActivity() {
 //        binding.rvEmployee.layoutManager = LinearLayoutManager(this)
 //        binding.rvEmployee.adapter = employeeAdapter
 
+
+        val quotesApi = RetrofitBuilder.getInstance().create(QoutesAPIs::class.java)
+
+        GlobalScope.launch {
+            val result = quotesApi.getQuotes()
+            Log.i("result", result.body().toString())
+        }
     }
 }
