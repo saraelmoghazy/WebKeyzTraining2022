@@ -23,7 +23,6 @@ class FragmentB : Fragment() {
     private var param2: String? = null
 
     lateinit var binding: FragmentBBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -31,14 +30,12 @@ class FragmentB : Fragment() {
             param2 = it.getString(ARG_PARAM2)
         }
     }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentBBinding.inflate(inflater, container, false)
-
         return binding.root
     }
 
